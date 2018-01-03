@@ -1,9 +1,23 @@
+// var board = [
+// 	[1,0,1,0],
+// 	[0,1,1,0],
+// 	[0,0,1,0],
+// 	[0,0,1,1],
+// ];
+
 var board = [
-	[1,0,1,0],
+	[1,0,0,0],
 	[0,1,1,0],
 	[0,0,1,0],
-	[0,0,1,1],
+	[0,0,1,0],
 ];
+
+// var board = [
+// 	[1,0,0,0],
+// 	[0,1,0,0],
+// 	[0,0,1,0],
+// 	[0,0,0,1],
+// ];
 
 var vArr = [
 	[[1,0],[-1,0]], //up down vectors
@@ -20,22 +34,25 @@ function checkAtVectors(start){
 	var vector = start;
 	var check = [];
 	for(var i=0;i<vArr.length;i++){
-		for(var k=0;k<vArr[i][k].length;k++){
+		counter = null;
+		for(var k=0;k<2;){
 			check = [vector[0] + vArr[i][k][0],vector[1] + vArr[i][k][1]];
-			if(board[check[0]] > board.length || board[check[0]][check[1]] ){
-				break;
+			if(check[0] > board.length-1 || check[0] < 0 || check[1] > board[i].length-1 || check[0] < 0){
+				vector = start;
+				k++;
+				// break;
 			} else if (board[check[0]][check[1]] === board[start[0]][start[1]]){
 				counter++;
 				console.log('Input at x: '+check[0] +' y: '+check[1]+' = '+ board[check[0]][check[1]]);
 				vector = check;
-				i--;
-				break;
+			} else if (board[check[0]][check[1]] !== board[start[0]][start[1]]){
+				vector = start;
+				k++;
+			}
+			if(counter>=3){
+				console.log('You Have Four in a Row!')
+				return true;
 			}
 		}
-	}
-	if(counter>=4){
-		return true;
-	} else {
-		return false;
 	}
 }
