@@ -8,20 +8,33 @@ var board = [
 	[]
 ];
 
-var vArr = [ //array of directions. These are essentially instructions for how to adjust the pieces being compared
-	[[1,0],[-1,0]], //up down vectors
-	[[0,1],[0,-1]], //left right vectors
-	[[-1,-1],[1,1]], // right angle vectors
-	[[1,-1],[-1,1]] //left angle vectors
-];
-
+$(document).ready(initializeApp);
 
 function initializeApp() {
-    $('.column').on('click', dropCoin);
+  $('.column').on('click', dropCoin);
+  $('.loadingModal').show();
+  $('.modalMain').show();
+  $('.modalBG').show();
 }
-function addHandlers(){
-	
-}
+
+var vArr = [ //array of directions. These are essentially instructions for how to adjust the pieces being compared
+  [
+    [1, 0],
+    [-1, 0]
+  ], //up down vectors
+  [
+    [0, 1],
+    [0, -1]
+  ], //left right vectors
+  [
+    [-1, -1],
+    [1, 1]
+  ], // right angle vectors
+  [
+    [1, -1],
+    [-1, 1]
+  ] //left angle vectors
+];
 
 function checkAtVectors(start){ //start equals the last piece added to the board
 	var counter = null; //keeps track of matches found
@@ -48,26 +61,21 @@ function checkAtVectors(start){ //start equals the last piece added to the board
 			}
 		}
 	}
-
-function win(player) {
-
 }
-
 
 var turn = 1;
 
 function dropCoin() {
-    var colNum = 3; //$('.column').value();
-    if (board[colNum].length < 7) {
-        if (turn % 2 !== 0) {
-            board[colNum].push('1');
-            turn += 1;
-			checkAtVectors([colNum ,board[colNum].length-1]);
-        } else {
-            board[colNum].push('2');
-            turn += 1;
-            checkAtVectors([colNum ,board[colNum].length-1]);
-        }
+  var colNum = 3; //$('.column').value();
+  if (board[colNum].length < 7) {
+    if (turn % 2 !== 0) {
+      board[colNum].push('1');
+      turn += 1;
+      checkAtVectors([colNum, board[colNum].length - 1]);
+    } else {
+      board[colNum].push('2');
+      turn += 1;
+      checkAtVectors([colNum, board[colNum].length - 1]);
     }
+  }
 }
-
