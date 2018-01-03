@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 var board = [
   [],
   [],
@@ -68,12 +69,20 @@ function checkAtVectors(start) {
     }
   }
 =======
+=======
+
+>>>>>>> 99a03802a7e4f93ea69f2d1fd76c091afc7157f2
 var vArr = [ //array of directions. These are essentially instructions for how to adjust the pieces being compared
 	[[1,0],[-1,0]], //up down vectors
 	[[0,1],[0,-1]], //left right vectors
 	[[-1,-1],[1,1]], // right angle vectors
 	[[1,-1],[-1,1]] //left angle vectors
 ];
+
+
+function initializeApp() {
+    $('.column').on('click', dropCoin);
+}
 
 function checkAtVectors(start){ //start equals the last piece added to the board
 	var counter = null; //keeps track of matches found
@@ -100,5 +109,38 @@ function checkAtVectors(start){ //start equals the last piece added to the board
 			}
 		}
 	}
+<<<<<<< HEAD
 >>>>>>> 373075b00b05054da3c12f4c5655e858c439b55e
 }
+=======
+
+var board = [
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[]
+];
+
+var turn = 1;
+
+
+
+function dropCoin() {
+    var colNum = 3; //$('.column').value();
+    if (board[colNum].length < 7) {
+        if (turn % 2 !== 0) {
+            board[colNum].push('1');
+            turn += 1;
+			checkAtVectors([colNum ,board[colNum].length-1]);
+        } else {
+            board[colNum].push('2');
+            turn += 1;
+            checkAtVectors([colNum ,board[colNum].length-1]);
+        }
+    }
+}
+
+>>>>>>> 99a03802a7e4f93ea69f2d1fd76c091afc7157f2
