@@ -20,32 +20,21 @@
 			box-sizing: border-box;
 		}
 
-		.chip {
+		.chip-display {
 			position: relative;
 			display: inline-block;
-
-
-				width: 112px;
-				height: 89px;
-
-
-			margin: .2%;
+			width: 100%;
+			height: 89px;
 			cursor: hand;
-
-
 		}
 
-		.chip img {
+		.chip-display img {
 			width: 100%;
 		}
-		.front, .back {
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
 
-		.front img {
-			border-radius: 3px;
+		.column-display {
+			width: 14%;
+			display: inline-block;
 		}
 
 		.score {
@@ -65,7 +54,8 @@
 			display: none;
 		}
 
-		/* Might Use This Later - Matt
+		/* Might use this stuff later - Matt
+
         @media (max-width: 768px) {
           .game-area {
             width: 40% !important;
@@ -78,8 +68,7 @@
           .title {
             font-size: .8em;
           }
-    */
-          /* Might Use This Later - Matt
+
         .border-image {
           border-top-color: initial;
           border-top-style: solid;
@@ -100,9 +89,18 @@
           border-image-repeat: initial;
           background-color: rgba(15, 35, 34, .1);
         }
-    */
 
-		}
+				.front, .back {
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+
+				.front img {
+					border-radius: 3px;
+				}
+
+		*/
 
 	</style>
 
@@ -140,71 +138,70 @@
     -->
       </div><!--  Player Container End -->
 
-	<div class="game-area" style="display: inline-block; width: 70%; min-height: 771px; display: flex; justify-content: center; align-content: flex-start; flex-wrap: wrap; background-image: url(./assets/img/game-board.png); background-size: contain; background-repeat: no-repeat;" ><!--  Game Area Start -->
+	<div class="game-area" style="display: inline-block; position: relative; width: 70%; min-height: 771px; display: flex; justify-content: center; align-content: flex-start; flex-wrap: wrap; background-image: url(./assets/img/game-board.png); background-size: contain; background-repeat: no-repeat;" ><!--  Game Area Start -->
 
-		<div class="col0" style="width: 112px; ">
-			<div class="chip0" style="background-color: #b84962;"></div>
-			<div class="chip1" style="background-color: #0fb8ad;"></div>
-			<div class="chip2" style="background-color: #8da0b8;"></div>
-			<div class="chip3" style="background-color: #0fb8ad;"></div>
-			<div class="chip4" style="background-color: #a3b853;"></div>
-			<div class="chip5 player2" style="background-color: #0fb8ad;"></div>
+		<div class="column-display col0" >
+			<div class="chip-display chip0" style="background-color: #b84962;"></div>
+			<div class="chip-display chip1 player1" style="background-color: #6ab856;"></div>
+			<div class="chip-display chip2" style="background-color: #8da0b8;"></div>
+			<div class="chip-display chip3" style="background-color: #b84248;"></div>
+			<div class="chip-display chip4" style="background-color: #a3b853;"></div>
+			<div class="chip-display chip5 player2" style="background-color: #6354b8;"></div>
 		</div>
 
-		<div class="col1" style="width: 112px; ">
-			<div class="chip0" style="background-color: #b84962;"></div>
-			<div class="chip1" style="background-color: #0fb8ad;"></div>
-			<div class="chip2" style="background-color: #8da0b8;"></div>
-			<div class="chip3" style="background-color: #0fb8ad;"></div>
-			<div class="chip4" style="background-color: #a3b853;"></div>
-			<div class="chip5" style="background-color: #0fb8ad;"></div>
+		<div class="column-display col1">
+			<div class="chip-display chip0" style="background-color: #95b875;"></div>
+			<div class="chip-display chip1" style="background-color: #b87331;"></div>
+			<div class="chip-display chip2" style="background-color: #52b884;"></div>
+			<div class="chip-display chip3" style="background-color: #7991b8;"></div>
+			<div class="chip-display chip4" style="background-color: #b864b8;"></div>
+			<div class="chip-display chip5" style="background-color: #59b868;"></div>
 		</div>
 
-		<div class="col2" style="width: 112px; ">
-			<div class="chip0" style="background-color: #b84962;"></div>
-			<div class="chip1" style="background-color: #0fb8ad;"></div>
-			<div class="chip2" style="background-color: #8da0b8;"></div>
-			<div class="chip3" style="background-color: #0fb8ad;"></div>
-			<div class="chip4" style="background-color: #a3b853;"></div>
-			<div class="chip5" style="background-color: #0fb8ad;"></div>
+		<div class="column-display col2">
+			<div class="chip-display chip0" style="background-color: #6bb85a;"></div>
+			<div class="chip-display chip1" style="background-color: #b8b761;"></div>
+			<div class="chip-display chip2" style="background-color: #b8625f;"></div>
+			<div class="chip-display chip3" style="background-color: #b84248;"></div>
+			<div class="chip-display chip4" style="background-color: #b47bb8;"></div>
+			<div class="chip-display chip5" style="background-color: #5a95b8;"></div>
 		</div>
 
-		<div class="col3" style="width: 112px; ">
-			<div class="chip0" style="background-color: #b84962;"></div>
-			<div class="chip1" style="background-color: #0fb8ad;"></div>
-			<div class="chip2" style="background-color: #8da0b8;"></div>
-			<div class="chip3" style="background-color: #0fb8ad;"></div>
-			<div class="chip4" style="background-color: #a3b853;"></div>
-			<div class="chip5" style="background-color: #0fb8ad;"></div>
+		<div class="column-display col3">
+			<div class="chip-display chip0" style="background-color: #5bb86d;"></div>
+			<div class="chip-display chip1" style="background-color: #b8a06f;"></div>
+			<div class="chip-display chip2" style="background-color: #b85a5b;"></div>
+			<div class="chip-display chip3" style="background-color: #5c75b8;"></div>
+			<div class="chip-display chip4" style="background-color: #a747b8;"></div>
+			<div class="chip-display chip5" style="background-color: #70b8ac;"></div>
 		</div>
 
-		<div class="col4" style="width: 112px; ">
-			<div class="chip0" style="background-color: #b84962;"></div>
-			<div class="chip1" style="background-color: #0fb8ad;"></div>
-			<div class="chip2" style="background-color: #8da0b8;"></div>
-			<div class="chip3" style="background-color: #0fb8ad;"></div>
-			<div class="chip4" style="background-color: #a3b853;"></div>
-			<div class="chip5" style="background-color: #0fb8ad;"></div>
+		<div class="column-display col4">
+			<div class="chip-display chip0" style="background-color: #54b890;"></div>
+			<div class="chip-display chip1" style="background-color: #b8b464;"></div>
+			<div class="chip-display chip2" style="background-color: #b65bb8;"></div>
+			<div class="chip-display chip3" style="background-color: #60b860;"></div>
+			<div class="chip-display chip4" style="background-color: #b8463b;"></div>
+			<div class="chip-display chip5" style="background-color: #6ab87b;"></div>
 		</div>
 
-		<div class="col5" style="width: 112px; ">
-			<div class="chip0" style="background-color: #b84962;"></div>
-			<div class="chip1" style="background-color: #0fb8ad;"></div>
-			<div class="chip2" style="background-color: #8da0b8;"></div>
-			<div class="chip3" style="background-color: #0fb8ad;"></div>
-			<div class="chip4" style="background-color: #a3b853;"></div>
-			<div class="chip5" style="background-color: #0fb8ad;"></div>
+		<div class="column-display col5">
+			<div class="chip-display chip0" style="background-color: #b89e71;"></div>
+			<div class="chip-display chip1" style="background-color: #b8674c;"></div>
+			<div class="chip-display chip2" style="background-color: #6eb8a3;"></div>
+			<div class="chip-display chip3" style="background-color: #b873a6;"></div>
+			<div class="chip-display chip4" style="background-color: #6d8fb8;"></div>
+			<div class="chip-display chip5" style="background-color: #56b87c;"></div>
 		</div>
 
-		<div class="col6" style="width: 112px; ">
-			<div class="chip0" style="background-color: #b84962;"></div>
-			<div class="chip1" style="background-color: #0fb8ad;"></div>
-			<div class="chip2" style="background-color: #8da0b8;"></div>
-			<div class="chip3" style="background-color: #0fb8ad;"></div>
-			<div class="chip4" style="background-color: #a3b853;"></div>
-			<div class="chip5 player1" style="background-color: #0fb8ad;"></div>
+		<div class="column-display col6">
+			<div class="chip-display chip0" style="background-color: #afb859;"></div>
+			<div class="chip-display chip1" style="background-color: #b86883;"></div>
+			<div class="chip-display chip2" style="background-color: #9971b8;"></div>
+			<div class="chip-display chip3" style="background-color: #5db87b;"></div>
+			<div class="chip-display chip4" style="background-color: #7893b8;"></div>
+			<div class="chip-display chip5" style="background-color: #b8b754;"></div>
 		</div>
-
 
 	</div><!--  Game Area End -->
 
