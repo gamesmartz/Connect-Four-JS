@@ -1,33 +1,9 @@
-var board = [
-	[1],
-	[],
-	[],
-	[],
-];
-
-// var board = [
-// 	[1,0,0,0],
-// 	[0,1,1,0],
-// 	[0,0,1,0],
-// 	[0,0,1,0],
-// ];
-
-// var board = [
-// 	[1,0,0,0],
-// 	[0,1,0,0],
-// 	[0,0,1,0],
-// 	[0,0,0,1],
-// ];
-
 var vArr = [
 	[[1,0],[-1,0]], //up down vectors
 	[[0,1],[0,-1]], //left right vectors
 	[[-1,-1],[1,1]], // right angle vectors
 	[[1,-1],[-1,1]] //left angle vectors
 ];
-
-// board[i].length - checking columns
-// board.length - checking rows
 
 function checkAtVectors(start){
 	var counter = null;
