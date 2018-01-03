@@ -1,3 +1,12 @@
+var board = [
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[]
+];
 
 var vArr = [ //array of directions. These are essentially instructions for how to adjust the pieces being compared
 	[[1,0],[-1,0]], //up down vectors
@@ -9,6 +18,9 @@ var vArr = [ //array of directions. These are essentially instructions for how t
 
 function initializeApp() {
     $('.column').on('click', dropCoin);
+}
+function addHandlers(){
+	
 }
 
 function checkAtVectors(start){ //start equals the last piece added to the board
@@ -37,19 +49,12 @@ function checkAtVectors(start){ //start equals the last piece added to the board
 		}
 	}
 
-var board = [
-	[],
-	[],
-	[],
-	[],
-	[],
-	[],
-	[]
-];
+function win(player) {
+
+}
+
 
 var turn = 1;
-
-
 
 function dropCoin() {
     var colNum = 3; //$('.column').value();
