@@ -3,15 +3,19 @@
 }
 
 body {
+  height: 100vh;
+  position: relative;
   background-image: url(./assets/img/pirate-bay-background.jpg);
   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: #000000;
 }
 
 header {
   width: 100%;
   height: 15vh;
+  text-align: center;
   position: relative;
   font-family: 'MedievalSharp', cursive;
   font-size: 2em;
@@ -23,10 +27,11 @@ header {
 }
 
 .main-container{
-  display: flex;
   max-width: 1200px;
-  margin: auto;
-  position: relative;
+  margin: auto 25%;
+  position: absolute;
+  bottom: 1px;
+  text-align: center;
 }
 
 #waiting{
@@ -92,11 +97,11 @@ header {
   font-size: 0;
 }
 
-.chip-display img {
+.chip-display img{
   width: 100%;
 }
 
-.column-display {
+.column-display{
   width: 14.2%;
   height: 100%;
   display: inline-block;
@@ -104,7 +109,7 @@ header {
   position: relative;
 }
 
-.score {
+.score{
   display: inline-block;
   width: 25%;
   max-width: 298px;
@@ -121,20 +126,63 @@ header {
   background-repeat: no-repeat;
 }
 
-.display-none {
+.display-none{
   display: none;
 }
 
-.player1 {
+.player1{
   background-image: url(./assets/img/pirate-coin-5.png);
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-.player2 {
+.player2{
   background-image: url(./assets/img/spanish-coin-3.png);
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.player-container{
+  height: 119px;
+  width: 454px;
+  display: inline-block;
+  background-image: url(./assets/img/player-turn-background.jpg);
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.player{
+  display: inline-block;
+  width: 26%;
+  height: 80%;
+  margin-top: 13px;
+  margin-right: 5px;
+}
+
+.player-flag{
+  display: inline-block;
+  background-image: url(./assets/img/pirate-flag-player-turn.png);
+  text-align: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 37%;
+  height: 80%;
+  margin-top: 13px;
+}
+
+.player-reset{
+  display: inline-block;
+  width: 26%;
+  height: 80%;
+  margin-top: 13px;
+  margin-left: 5px;
 }
 
 

@@ -16,11 +16,11 @@ function initializeApp() {
 
 }
 
-function startGame() {
-  $('.loadingModal').show();
-  $('.modalMain').show();
-  $('.modalBG').show();
-}
+// function startGame() {
+//   $('.loadingModal').show();
+//   $('.modalMain').show();
+//   $('.modalBG').show();
+// }
 
 function clickHandler() {
   $('.column-display').on('click', dropCoin);
