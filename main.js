@@ -1,10 +1,23 @@
+var board = [
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[]
+];
 $(document).ready(initializeApp);
-
 function initializeApp() {
-  $('.column').on('click', dropCoin);
+  clickHandler();
   $('.loadingModal').show();
   $('.modalMain').show();
   $('.modalBG').show();
+}
+
+function clickHandler() {
+   $('.column-display').on('click', dropCoin);
+  //$('#playAgainBtn').on('click', resetGame);
 }
 
 
@@ -28,6 +41,7 @@ var vArr = [ //array of directions. These are essentially instructions for how t
 ];
 
 function checkAtVectors(start) { //start equals the last piece added to the board
+	drawGameCheck();
     var counter = null; //keeps track of matches found
     var vector = start; //creates new variable equal to start position. Will be used to keep start param from being changed
     var check = []; //starts empty, will store the position to be checked
@@ -48,37 +62,58 @@ function checkAtVectors(start) { //start equals the last piece added to the boar
             }
             if (counter >= 3) { //checks to see if we have found at least 3 additional matched pieces
                 console.log('You Have Four in a Row!')
-                return true;
+                endGame();
             }
         }
     }
+  }
 }
-
-var board = [
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  []
-];
 
 var turn = 1;
 
 function dropCoin() {
-    var colNum = 3; //$('.column').attr('class');
-    var maxRow = board[colNum].length;
-    var rowNum = maxRow - 1;
-    if (maxRow < 7) {
-        if (turn % 2 !== 0) {
-            board[colNum].push('1');
-            turn += 1;
-            checkAtVectors([colNum, rowNum]);
-        } else {
-            board[colNum].push('2');
-            turn += 1;
-            checkAtVectors([colNum, rowNum]);
-        }
+  var colNum = parseInt($(this).attr('colnum'));
+  var maxRow = board[colNum].length;
+  var rowNum = 0;
+  if (maxRow < 7) {
+    if (turn % 2 !== 0) {
+      board[colNum].push('1');
+      domCreateCoin(this, colNum, rowNum);
+      checkAtVectors([colNum, rowNum]);
+      turn += 1;
+    } else {
+      board[colNum].push('2');
+      domCreateCoin(this, colNum, rowNum);
+      checkAtVectors([colNum, rowNum]);
+      turn += 1;
     }
+  }
+}
+
+function domCreateCoin(column, colNum, rowNum) {
+  var coin = $('<div>', {
+    'src': './assets/img/game-board-hole.png',
+    class: 'chip-display chip' + rowNum,
+    style: 'background-color: blue;'
+  });
+  $(column).append(coin);
+  // if ()
+}
+
+function drawGameCheck(){
+	if (turn===42){
+		$('#EGMHeader').text('Everyone lose');
+		$('#endGameModal').show();
+  		$('.playAgainBtn').on('click', resetGame);		
+	}
+}
+
+function endGame(){
+	if (turn % 2 !== 0) {
+		$('#EGMHeader').text('Player 1 Wins!!');
+	} else {
+		$('#EGMHeader').text('Player 2 Wins!!');
+	}
+	$('#endGameModal').show();
+  	$('.playAgainBtn').on('click', resetGame);
 }
