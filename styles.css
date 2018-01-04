@@ -33,10 +33,9 @@ header {
 }
 
 .main-container{
-  max-width: 1200px;
-  margin: auto 25%;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
-  bottom: 1px;
   text-align: center;
 }
 
@@ -71,8 +70,8 @@ header {
 .game-area {
   display: inline-block;
   position: relative;
-  min-width: 912px;
-  min-height: 771px;
+  height: 70%;
+  left: 26%;
   display: flex;
   justify-content: center;
   align-content: flex-start;
@@ -149,8 +148,8 @@ header {
 }
 
 .player-container{
-  height: 119px;
-  width: 454px;
+  height: 10%;
+  width: 22%;
   display: inline-block;
   background-image: url(./assets/img/player-turn-background.jpg);
   text-align: center;
@@ -165,30 +164,32 @@ header {
 }
 
 .player{
+
   display: inline-block;
   width: 26%;
   height: 80%;
-  margin-top: 13px;
-  margin-right: 5px;
+  /* top: 1%; */
+  margin-top: 4%;
+  margin-right: 2%;
 }
 
 .player-flag{
   display: inline-block;
-  background-image: url(./assets/img/pirate-flag-player-turn.png);
+  background-image: url(./assets/img/pirate-coin-1.png);
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 37%;
-  height: 80%;
-  margin-top: 13px;
+  width: 27%;
+  height: 67%;
+  margin-top: 4%;
 }
 
 .player-reset{
   display: inline-block;
-  width: 26%;
-  height: 80%;
-  margin-top: 13px;
-  margin-left: 5px;
+    width: 26%;
+    height: 80%;
+    margin-top: 5%;
+    margin-left: 5%;
 }
 
 .loadingModal {
