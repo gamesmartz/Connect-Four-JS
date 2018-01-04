@@ -12,14 +12,12 @@ $(document).ready(initializeApp);
 function initializeApp() {
   clickHandler();
   startGame();
-
-
 }
 
 function startGame() {
-  $('.loadingModal').show();
-  $('.modalMain').show();
-  $('.modalBG').show();
+  // $('.loadingModal').show();
+  // $('.modalMain').show();
+  // $('.modalBG').show();
 }
 
 function clickHandler() {
@@ -100,13 +98,13 @@ function dropCoin() {
 }
 
 var distance = [
-  [70],
-  [70],
-  [70],
-  [70],
-  [70],
-  [70],
-  [70]
+  [100],
+  [100],
+  [100],
+  [100],
+  [100],
+  [100],
+  [100]
 ];
 
 function domCreateCoin(column, colNum, rowNum) {
@@ -123,15 +121,15 @@ function domCreateCoin(column, colNum, rowNum) {
   if (board[colNum][rowNum] === '1') {
 
     $(column).prepend(coinPirate);
-    distance[colNum] -= 10;
+    distance[colNum] -= 16.66;
     coinPirate.animate({
-      top: distance[colNum] + 'vh'
+      top: distance[colNum] + '%'
     });
   } else {
     $(column).prepend(coinSpanish);
-    distance[colNum] -= 10;
+    distance[colNum] -= 16.66;
     coinSpanish.animate({
-      top: distance[colNum] + 'vh'
+      top: distance[colNum] + '%'
     });
 
   }
