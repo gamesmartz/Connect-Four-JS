@@ -17,15 +17,25 @@ function initializeApp() {
 }
 
 function startGame() {
-  // $('.loadingModal').show();
-  // $('.modalMain').show();
-  // $('.modalBG').show();
+  $('#mainModal').show();
+  setTimeout(function(){
+    $('#mainModal').fadeOut();
+  }, 1500);
+  setTimeout(function(){
+    $('#coinChooseModal').fadeIn();
+  }, 1600);
 }
 
 function clickHandler() {
   $('.column-display').on('click', dropCoin);
-  //$('#playAgainBtn').on('click', resetGame);
+  $('#playAgainBtn').on('click', resetGame);
   $('#resetBtn').on('click', resetGame);
+  $('.playerChooseDiv').on('click', 
+    function(){
+      $('#coinChooseModal').fadeOut();
+    }
+    // sideSelection();
+    );
 }
 
 /*function sideSelection {
@@ -193,9 +203,9 @@ function drawGameCheck() {
 
 function endGame() {
   if (turn % 2 !== 0) {
-    $('#EGMHeader').text('Player 1 Wins!!');
+    $('#EGMHeader').text('Pirates WIN!!');
   } else {
-    $('#EGMHeader').text('Player 2 Wins!!');
+    $('#EGMHeader').text('Spanish WIN!!');
   }
   $('#endGameModal').show();
 
