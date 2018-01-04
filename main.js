@@ -46,15 +46,17 @@ function checkAtVectors(start) { //start equals the last piece added to the boar
   var counter = null; //keeps track of matches found
   var vector = start; //creates new variable equal to start position. Will be used to keep start param from being changed
   var check = []; //starts empty, will store the position to be checked
+
   for (var i = 0; i < vArr.length; i++) { //first loop, goes through the vArr array
     counter = null;
     for (var k = 0; k < 2;) { //second loop, goes through the indexes of vArr[i]
       check = [vector[0] + vArr[i][k][0], vector[1] + vArr[i][k][1]]; //sets the check variable equal to the cooridnates of the piece to be compared to the last piece added
-      if (check[0] > board.length - 1 || check[0] < 0 || check[1] > board[i].length - 1 || check[0] < 0) { //checks to see if we are comparing a position that does not exist in the game board
+      if (check[0] >= board.length - 1 || check[0] < 0 || check[1] > start[0].length || check[1] < 0) { //checks to see if we are comparing a position that does not exist in the game board
         vector = start; //if this runs, it means we reached a position not on the board. We need to start searching again from the origin/'start' point
         k++; //this shifts the direction we are serching in, and makes it opposite of the direction we were currently looking
       } else if (board[check[0]][check[1]] === board[start[0]][start[1]]) { //checks to see if the pieces compared were the same
         counter++; //increase the counter (how many mathes have been found consecutively)
+        console.log(counter);
         console.log('Input at x: ' + check[0] + ' y: ' + check[1] + ' = ' + board[check[0]][check[1]]);
         vector = check; //change the current vector to the one we just checked, so that we can continue moving in the same direction
       } else if (board[check[0]][check[1]] !== board[start[0]][start[1]]) { //check to see if the start piece matches the adjacent piece if we do not find a match immediately next to the start piece, it cannot be a 4-in-a-row
@@ -90,6 +92,16 @@ function dropCoin() {
   }
 }
 
+var distance = [
+  [70],
+  [70],
+  [70],
+  [70],
+  [70],
+  [70],
+  [70]
+];
+
 function domCreateCoin(column, colNum, rowNum) {
   var coinPirate = $('<div>', {
     'src': './assets/img/game-board-hole.png',
@@ -102,9 +114,19 @@ function domCreateCoin(column, colNum, rowNum) {
     style: 'background-color: red;'
   });
   if (board[colNum][rowNum] === '1') {
-    $(column).append(coinPirate);
+
+    $(column).prepend(coinPirate);
+    distance[colNum] -= 10;
+    coinPirate.animate({
+      top: distance[colNum] + 'vh'
+    });
   } else {
-    $(column).append(coinSpanish);
+    $(column).prepend(coinSpanish);
+    distance[colNum] -= 10;
+    coinSpanish.animate({
+      top: distance[colNum] + 'vh'
+    });
+
   }
 }
 
