@@ -22,3 +22,11 @@
   text-align: center;
 
 }
+
+.player1 {
+  background-color: black;
+}
+
+.player2 {
+  background-color: white;
+}

@@ -1,11 +1,12 @@
 $(document).ready(initializeApp);
 
 function initializeApp() {
-  $('.column').on('click', dropCoin);
-  $('.loadingModal').show();
-  $('.modalMain').show();
-  $('.modalBG').show();
+    $('.column-display').on('click', dropCoin);
+    $('.loadingModal').show();
+    $('.modalMain').show();
+    $('.modalBG').show();
 }
+
 
 
 var vArr = [ //array of directions. These are essentially instructions for how to adjust the pieces being compared
@@ -47,7 +48,7 @@ function checkAtVectors(start) { //start equals the last piece added to the boar
                 k++;//this shifts the direction we are serching in, and makes it opposite of the direction we were currently looking
             }
             if (counter >= 3) { //checks to see if we have found at least 3 additional matched pieces
-                console.log('You Have Four in a Row!')
+                console.log('You Have Four in a Row!');
                 return true;
             }
         }
@@ -67,18 +68,20 @@ var board = [
 var turn = 1;
 
 function dropCoin() {
-    var colNum = 3; //$('.column').attr('class');
+    var colNum = parseInt($(this).attr('colnum'));
     var maxRow = board[colNum].length;
-    var rowNum = maxRow - 1;
     if (maxRow < 7) {
         if (turn % 2 !== 0) {
             board[colNum].push('1');
+            checkAtVectors([colNum, board[colNum].length-1]);
             turn += 1;
-            checkAtVectors([colNum, rowNum]);
         } else {
             board[colNum].push('2');
+            checkAtVectors([colNum, board[colNum].length-1]);
             turn += 1;
-            checkAtVectors([colNum, rowNum]);
         }
     }
 }
+
+
+
