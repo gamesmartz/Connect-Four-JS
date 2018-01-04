@@ -29,18 +29,20 @@
     </div>
   </div>
 
-<header>
-	<div class="title">Pirates of the Caribbean Connect 4</div>
-</header>
-
 <div class="main-container"><!--  Main Container Start -->
 
-	<div class="scoreContainer"><!--  Player Container Start -->
+  <header class="title">
+    Pirates of the Caribbean Connect 4
+  </header>
 
-		<div id='player'>Player</div>
-		<div id="playerNum">1</div>
-		<button type="button" id="resetBtn" name="button">Reset Button</button>
-		</div><!--  Player Container End -->
+  <div class="player-container">
+    <div id='player' class="player">
+      <div id="playerNum">Player Turn</div>
+    </div>    
+    <div class="player-flag"></div>
+    <div class="player-reset"><button type="button" id="resetBtn" name="button">Reset Button</button></div>
+  </div>
+
 	<div class="game-area"><!--  Game Area Start -->
 		<div class='column-area'>
             <div class="column-display col0" colnum = 0></div>
