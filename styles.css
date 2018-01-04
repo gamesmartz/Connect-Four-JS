@@ -22,3 +22,29 @@
   text-align: center;
 
 }
+
+#endGameModal {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+}
+
+#EGMHeader {
+  height: 50%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  z-index:1;  
+}
+
+#playAgainBtn {
+  width: 25%;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 3vmin;
+  align-self: center;
+}

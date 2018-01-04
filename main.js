@@ -81,3 +81,11 @@ function dropCoin() {
         }
     }
 }
+
+function endGame(){
+	if (turn % 2 !== 0) {
+		$('#EGMHeader').text('Player x Wins!!')
+	} else {
+		$('#EGMHeader').text('Player x Wins!!')
+	}
+}
