@@ -15,15 +15,25 @@ function initializeApp() {
 }
 
 function startGame() {
-  // $('.loadingModal').show();
-  // $('.modalMain').show();
-  // $('.modalBG').show();
+  $('#mainModal').show();
+  setTimeout(function(){
+    $('#mainModal').fadeOut();
+  }, 1500);
+  setTimeout(function(){
+    $('#coinChooseModal').fadeIn();
+  }, 1600);
 }
 
 function clickHandler() {
   $('.column-display').on('click', dropCoin);
-  //$('#playAgainBtn').on('click', resetGame);
+  $('#playAgainBtn').on('click', resetGame);
   $('#resetBtn').on('click', resetGame);
+  $('.playerChooseDiv').on('click', 
+    function(){
+      $('#coinChooseModal').fadeOut();
+    }
+    // sideSelection();
+    );
 }
 
 /*function sideSelection {
@@ -95,13 +105,13 @@ function dropCoin() {
   var maxRow = board[colNum].length;
   if (maxRow < 6) {
     if (turn % 2 !== 0) {
-        $('#playerNum').text("Pirates Turn");
+        $('#playerNum').text("Spanish Turn");
         board[colNum].push('1');
         domCreateCoin(this, colNum, board[colNum].length - 1);
         checkAtVectors([colNum, board[colNum].length - 1]);
         turn += 1;
     } else {
-        $('#playerNum').text("Spanish Turn");
+        $('#playerNum').text("Pirates Turn");
         board[colNum].push('2');
         domCreateCoin(this, colNum, board[colNum].length - 1);
         checkAtVectors([colNum, board[colNum].length - 1]);
@@ -193,9 +203,9 @@ function drawGameCheck() {
 
 function endGame() {
   if (turn % 2 !== 0) {
-    $('#EGMHeader').text('Player 1 Wins!!');
+    $('#EGMHeader').text('Pirates WIN!!');
   } else {
-    $('#EGMHeader').text('Player 2 Wins!!');
+    $('#EGMHeader').text('Spanish WIN!!');
   }
   $('#endGameModal').show();
 
