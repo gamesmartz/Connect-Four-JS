@@ -2,6 +2,9 @@
   font-family: 'piratefont';
   src: url(assets/font/BlackPearl.ttf);
 }
+::selection {
+  user-select: none;
+}
 
 * {
   box-sizing: border-box;
