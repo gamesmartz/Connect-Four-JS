@@ -26,6 +26,17 @@ function clickHandler() {
   $('#resetBtn').on('click', resetGame);
 }
 
+/*function sideSelection {
+    var selectedCoin = $(this).attr('id');
+    switch (selectedCoin){
+        case 'pirate':
+            $('').text("Pirates always go first");
+            break;
+        case 'spanish':
+            $('').text("Spanish ");
+    }
+}*/
+
 
 var vArr = [ //array of directions. These are essentially instructions for how to adjust the pieces being compared
   [
@@ -84,15 +95,17 @@ function dropCoin() {
   var maxRow = board[colNum].length;
   if (maxRow < 6) {
     if (turn % 2 !== 0) {
-      board[colNum].push('1');
-      domCreateCoin(this, colNum, board[colNum].length - 1);
-      checkAtVectors([colNum, board[colNum].length - 1]);
-      turn += 1;
+        $('#playerNum').text("Pirates Turn");
+        board[colNum].push('1');
+        domCreateCoin(this, colNum, board[colNum].length - 1);
+        checkAtVectors([colNum, board[colNum].length - 1]);
+        turn += 1;
     } else {
-      board[colNum].push('2');
-      domCreateCoin(this, colNum, board[colNum].length - 1);
-      checkAtVectors([colNum, board[colNum].length - 1]);
-      turn += 1;
+        $('#playerNum').text("Spanish Turn");
+        board[colNum].push('2');
+        domCreateCoin(this, colNum, board[colNum].length - 1);
+        checkAtVectors([colNum, board[colNum].length - 1]);
+        turn += 1;
     }
   }
 }
@@ -185,6 +198,7 @@ function endGame() {
     $('#EGMHeader').text('Player 2 Wins!!');
   }
   $('#endGameModal').show();
+
   $('#resetBtn').on('click', resetGame);
 }
 
