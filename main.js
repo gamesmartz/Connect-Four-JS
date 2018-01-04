@@ -57,8 +57,8 @@ function checkAtVectors(start) { //start equals the last piece added to the boar
             }
             if (counter >= 3) { //checks to see if we have found at least 3 additional matched pieces
                 console.log('You Have Four in a Row!')
-                return true;
-            }
+                endGame();
+            } else if ()
         }
     }
 }
@@ -84,8 +84,10 @@ function dropCoin() {
 
 function endGame(){
 	if (turn % 2 !== 0) {
-		$('#EGMHeader').text('Player x Wins!!')
+		$('#EGMHeader').text('Player 1 Wins!!');
 	} else {
-		$('#EGMHeader').text('Player x Wins!!')
+		$('#EGMHeader').text('Player 2 Wins!!');
 	}
+		$('#endGameModal').show();
+  	$('.playAgainBtn').on('click', resetGame);
 }

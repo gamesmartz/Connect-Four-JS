@@ -34,6 +34,7 @@
 #EGMHeader {
   height: 50%;
   width: 50%;
+  font-size: 6vmin;
   display: flex;
   justify-content: center;
   z-index:1;  
