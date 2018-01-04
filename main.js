@@ -66,7 +66,6 @@ function checkAtVectors(start) { //start equals the last piece added to the boar
             }
         }
     }
-  }
 }
 
 var turn = 1;
@@ -74,30 +73,38 @@ var turn = 1;
 function dropCoin() {
   var colNum = parseInt($(this).attr('colnum'));
   var maxRow = board[colNum].length;
-  var rowNum = 0;
   if (maxRow < 7) {
     if (turn % 2 !== 0) {
       board[colNum].push('1');
-      domCreateCoin(this, colNum, rowNum);
-      checkAtVectors([colNum, rowNum]);
+      domCreateCoin(this, colNum, board[colNum].length-1);
+      checkAtVectors([colNum, board[colNum].length-1]);
       turn += 1;
     } else {
       board[colNum].push('2');
-      domCreateCoin(this, colNum, rowNum);
-      checkAtVectors([colNum, rowNum]);
+      domCreateCoin(this, colNum, board[colNum].length-1);
+      checkAtVectors([colNum, board[colNum].length-1]);
       turn += 1;
     }
   }
 }
 
 function domCreateCoin(column, colNum, rowNum) {
-  var coin = $('<div>', {
-    'src': './assets/img/game-board-hole.png',
-    class: 'chip-display chip' + rowNum,
-    style: 'background-color: blue;'
+  var coinPirate = $('<div>', {
+      'src': './assets/img/game-board-hole.png',
+      class: 'chip-display chip' + rowNum,
+      style: 'background-color: blue;'
   });
-  $(column).append(coin);
-  // if ()
+
+  var coinSpanish = $('<div>', {
+      'src': './assets/img/game-board-hole.png',
+      class: 'chip-display chip' + rowNum,
+      style: 'background-color: red;'
+  });
+  if (board[colNum][rowNum] === '1'){
+      $(column).append(coinPirate);
+  } else {
+      $(column).append(coinSpanish);
+  }
 }
 
 function drawGameCheck(){
