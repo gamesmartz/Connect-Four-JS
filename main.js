@@ -190,7 +190,6 @@ function domCreateCoin(column, colNum, rowNum) {
       top: distance[colNum] + '%'
     });
   }
-  $('.column-display').css("background-image", "url()").css("background-repeat", "no-repeat");
 }
 
 function drawGameCheck() {
@@ -244,6 +243,9 @@ function resetGame() {
 
 
 function pirateHover() {
+    $('.column-display').click(function () {
+        $(this).css("background-image", "url("+randomSpanish()+")").css("background-repeat", "no-repeat")
+    });
     $('.column-display').mouseover(function () {
         $(this).css("background-image", "url("+randomPirate()+")").css("background-repeat", "no-repeat")
     });
@@ -253,6 +255,9 @@ function pirateHover() {
 }
 
 function spanishHover() {
+    $('.column-display').click(function () {
+        $(this).css("background-image", "url("+randomPirate()+")").css("background-repeat", "no-repeat")
+    });
     $('.column-display').hover(function () {
         $(this).css("background-image", "url("+randomSpanish()+")").css("background-repeat", "no-repeat")
     });
@@ -261,7 +266,3 @@ function spanishHover() {
     })
 }
 
-/*
-function pirateHover() {
-    $(this).css("background-image", "url("+randomPirate()+")").css("background-repeat", "no-repeat")
-}*/
