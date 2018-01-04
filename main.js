@@ -20,6 +20,7 @@ function clickHandler() {
   //$('#playAgainBtn').on('click', resetGame);
 }
 
+
 var vArr = [ //array of directions. These are essentially instructions for how to adjust the pieces being compared
   [
     [1, 0],
