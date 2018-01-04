@@ -25,18 +25,11 @@ body {
 }
 
 header {
-  width: 100%;
-  height: 15vh;
   text-align: center;
   position: relative;
-  font-size: 5em;
+  font-size: 2.5em;
   font-family: 'piratefont';
-  text-align: center;
   color: black;
-}
-
-.title {
-   padding-top: 20px
 }
 
 .main-container{
@@ -66,22 +59,6 @@ header {
   background-image: url(./assets/img/player-board.png);
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-#player{
-  width: 100%;
-  display: inline-block;
-  font-size: 1.7em;
-  color: #fff7f5;
-  margin-top: 10px;
-}
-
-#playerNum{
-  width: 100%;
-  display: inline-block;
-  font-size: 1.2em;
-  color: #fff7f5;
-  margin-top: 10px;
 }
 
 #resetBtn {
@@ -116,7 +93,6 @@ header {
 
 .chip-display {
   position: absolute;
-  /* display: inline-block; */
   width: 100%;
   height: 16.6%;
   cursor: hand;
@@ -185,7 +161,7 @@ header {
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
+  margin-bottom: 7px;
 }
 
 .player{
