@@ -12,8 +12,6 @@ $(document).ready(initializeApp);
 function initializeApp() {
   clickHandler();
   startGame();
-
-
 }
 
 function startGame() {
