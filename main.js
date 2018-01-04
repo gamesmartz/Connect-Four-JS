@@ -1,3 +1,13 @@
+var board = [
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[]
+];
+
 $(document).ready(initializeApp);
 
 function initializeApp() {
@@ -6,7 +16,6 @@ function initializeApp() {
   $('.modalMain').show();
   $('.modalBG').show();
 }
-
 
 var vArr = [ //array of directions. These are essentially instructions for how to adjust the pieces being compared
   [
@@ -28,6 +37,7 @@ var vArr = [ //array of directions. These are essentially instructions for how t
 ];
 
 function checkAtVectors(start) { //start equals the last piece added to the board
+	drawGameCheck();
     var counter = null; //keeps track of matches found
     var vector = start; //creates new variable equal to start position. Will be used to keep start param from being changed
     var check = []; //starts empty, will store the position to be checked
@@ -48,21 +58,11 @@ function checkAtVectors(start) { //start equals the last piece added to the boar
             }
             if (counter >= 3) { //checks to see if we have found at least 3 additional matched pieces
                 console.log('You Have Four in a Row!')
-                return true;
+                endGame();
             }
         }
     }
 }
-
-var board = [
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
-  []
-];
 
 var turn = 1;
 
@@ -81,4 +81,22 @@ function dropCoin() {
             checkAtVectors([colNum, rowNum]);
         }
     }
+}
+
+function drawGameCheck(){
+	if (turn===42){
+		$('#EGMHeader').text('Everyone lose');
+		$('#endGameModal').show();
+  		$('.playAgainBtn').on('click', resetGame);		
+	}
+}
+
+function endGame(){
+	if (turn % 2 !== 0) {
+		$('#EGMHeader').text('Player 1 Wins!!');
+	} else {
+		$('#EGMHeader').text('Player 2 Wins!!');
+	}
+	$('#endGameModal').show();
+  	$('.playAgainBtn').on('click', resetGame);
 }
