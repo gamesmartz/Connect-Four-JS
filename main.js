@@ -66,7 +66,6 @@ function checkAtVectors(start) { //start equals the last piece added to the boar
         endGame();
       }
     }
-  }
 }
 
 
