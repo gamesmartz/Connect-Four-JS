@@ -1,5 +1,14 @@
+@font-face {
+  font-family: 'piratefont';
+  src: url(assets/font/BlackPearl.ttf);
+}
+
 * {
   box-sizing: border-box;
+}
+
+.display-none{
+  display: none;
 }
 
 body {
@@ -17,9 +26,10 @@ header {
   height: 15vh;
   text-align: center;
   position: relative;
-  font-family: 'MedievalSharp', cursive;
-  font-size: 2em;
-  color: #e5e4c8;
+  font-size: 5em;
+  font-family: 'piratefont';
+  text-align: center;
+  color: black;
 }
 
 .title {
@@ -41,12 +51,18 @@ header {
    padding-bottom: 50%;
 }
 
-#score{
-  width: 75%;
+.scoreContainer {
   display: inline-block;
-  text-align: left;
-  margin-top: 10px;
+  width: 200px;
+  height: 201px;
   font-size: 1.3em;
+  font-family: 'piratefont';
+  text-align: center;
+  color: white;
+  position: relative;
+  background-image: url(./assets/img/player-board.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #player{
@@ -55,6 +71,21 @@ header {
   font-size: 1.7em;
   color: #fff7f5;
   margin-top: 10px;
+}
+
+#playerNum{
+  width: 100%;
+  display: inline-block;
+  font-size: 1.2em;
+  color: #fff7f5;
+  margin-top: 10px;
+}
+
+#resetBtn {
+  border-radius: 1vmin;
+  box-shadow: -1px -1px 11px rgba(0,0,0,.4);
+  border: none;
+  background-color: #E6CD96FF;
 }
 
 .game-area {
@@ -126,10 +157,6 @@ header {
   background-repeat: no-repeat;
 }
 
-.display-none{
-  display: none;
-}
-
 .player1{
   background-image: url(./assets/img/pirate-coin-5.png);
   background-size: contain;
@@ -185,54 +212,6 @@ header {
   margin-left: 5px;
 }
 
-
-/* Might use this stuff later - Matt
-
-    @media (max-width: 768px) {
-      .game-area {
-        width: 40% !important;
-      }
-      .guess-card {
-        width: 140px !important;
-        height: 79px !important;
-        margin: .1% !important;
-      }
-      .title {
-        font-size: .8em;
-      }
-
-    .border-image {
-      border-top-color: initial;
-      border-top-style: solid;
-      border-top-width: 27px;
-      border-right-color: initial;
-      border-right-style: solid;
-      border-right-width: 27px;
-      border-bottom-color: initial;
-      border-bottom-style: solid;
-      border-bottom-width: 27px;
-      border-left-color: initial;
-      border-left-style: solid;
-      border-left-width: 27px;
-      border-image-source: url('assets/img/score-border.png');
-      border-image-slice: 27 fill;
-      border-image-width: initial;
-      border-image-outset: initial;
-      border-image-repeat: initial;
-      background-color: rgba(15, 35, 34, .1);
-    }
-
-    .front, .back {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .front img {
-      border-radius: 3px;
-    }
-
-*/
 .loadingModal {
   display: none;
   width: 100%;

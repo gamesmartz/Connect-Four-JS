@@ -12,21 +12,30 @@ $(document).ready(initializeApp);
 function initializeApp() {
   clickHandler();
   startGame();
-
-
 }
 
-// function startGame() {
-//   $('.loadingModal').show();
-//   $('.modalMain').show();
-//   $('.modalBG').show();
-// }
+function startGame() {
+  // $('.loadingModal').show();
+  // $('.modalMain').show();
+  // $('.modalBG').show();
+}
 
 function clickHandler() {
   $('.column-display').on('click', dropCoin);
   //$('#playAgainBtn').on('click', resetGame);
   $('#resetBtn').on('click', resetGame);
 }
+
+/*function sideSelection {
+    var selectedCoin = $(this).attr('id');
+    switch (selectedCoin){
+        case 'pirate':
+            $('').text("Pirates always go first");
+            break;
+        case 'spanish':
+            $('').text("Spanish ");
+    }
+}*/
 
 
 var vArr = [ //array of directions. These are essentially instructions for how to adjust the pieces being compared
@@ -86,52 +95,89 @@ function dropCoin() {
   var maxRow = board[colNum].length;
   if (maxRow < 6) {
     if (turn % 2 !== 0) {
-      board[colNum].push('1');
-      domCreateCoin(this, colNum, board[colNum].length - 1);
-      checkAtVectors([colNum, board[colNum].length - 1]);
-      turn += 1;
+        $('#playerNum').text("Pirates Turn");
+        board[colNum].push('1');
+        domCreateCoin(this, colNum, board[colNum].length - 1);
+        checkAtVectors([colNum, board[colNum].length - 1]);
+        turn += 1;
     } else {
-      board[colNum].push('2');
-      domCreateCoin(this, colNum, board[colNum].length - 1);
-      checkAtVectors([colNum, board[colNum].length - 1]);
-      turn += 1;
+        $('#playerNum').text("Spanish Turn");
+        board[colNum].push('2');
+        domCreateCoin(this, colNum, board[colNum].length - 1);
+        checkAtVectors([colNum, board[colNum].length - 1]);
+        turn += 1;
     }
   }
 }
 
 var distance = [
-  [70],
-  [70],
-  [70],
-  [70],
-  [70],
-  [70],
-  [70]
+  [100],
+  [100],
+  [100],
+  [100],
+  [100],
+  [100],
+  [100]
+];
+var pirateCoins = [
+  './assets/img/coins/pirate-coin-1.png',
+  './assets/img/coins/pirate-coin-2.png',
+  './assets/img/coins/pirate-coin-3.png',
+  './assets/img/coins/pirate-coin-4.png',
+  './assets/img/coins/pirate-coin-5.png',
+];
+var spanishCoins = [
+  './assets/img/coins/spanish-coin-1.png',
+  './assets/img/coins/spanish-coin-2.png',
+  './assets/img/coins/spanish-coin-3.png',
+  './assets/img/coins/spanish-coin-4.png',
+  './assets/img/coins/spanish-coin-5.png',
 ];
 
+function randomPirate() {
+  var randPCoin = [];
+  for (var i = 0; i < pirateCoins.length; i++) {
+    var randPIndex = Math.floor(Math.random() * pirateCoins.length);
+    randPCoin.push(pirateCoins[randPIndex]);
+  }
+  return randPCoin;
+}
+
+function randomSpanish() {
+  var randSCoin = [];
+  for (var i = 0; i < spanishCoins.length; i++) {
+    var randSIndex = Math.floor(Math.random() * spanishCoins.length);
+    randSCoin.push(spanishCoins[randSIndex]);
+  }
+  return randSCoin;
+
+}
+
 function domCreateCoin(column, colNum, rowNum) {
-  var coinPirate = $('<div>', {
-    'src': './assets/img/game-board-hole.png',
-    class: 'chip-display chip' + rowNum,
-    style: 'background-color: blue;'
-  });
-  var coinSpanish = $('<div>', {
-    'src': './assets/img/game-board-hole.png',
-    class: 'chip-display chip' + rowNum,
-    style: 'background-color: red;'
-  });
+  var pCoin = randomPirate();
+  var sCoin = randomSpanish();
+  for (var i = 0; i < pCoin.length; i++) {
+    var coinPirate = $('<div>').addClass('chip-display chip' + rowNum);
+    var coinPirateImage = $('<img>').attr('src', pCoin[i]).addClass('chip');
+    coinPirate.append(coinPirateImage);
+  }
+  for (var i = 0; i < sCoin.length; i++) {
+    var coinSpanish = $('<div>').addClass('chip-display chip' + rowNum);
+    var coinSpanishImage = $('<img>').attr('src', sCoin[i]).addClass('chip');
+    coinSpanish.append(coinSpanishImage);
+  }
   if (board[colNum][rowNum] === '1') {
 
     $(column).prepend(coinPirate);
-    distance[colNum] -= 10;
+    distance[colNum] -= 16.66;
     coinPirate.animate({
-      top: distance[colNum] + 'vh'
+      top: distance[colNum] + '%'
     });
   } else {
     $(column).prepend(coinSpanish);
-    distance[colNum] -= 10;
+    distance[colNum] -= 16.66;
     coinSpanish.animate({
-      top: distance[colNum] + 'vh'
+      top: distance[colNum] + '%'
     });
 
   }
@@ -152,12 +198,18 @@ function endGame() {
     $('#EGMHeader').text('Player 2 Wins!!');
   }
   $('#endGameModal').show();
+
   $('#resetBtn').on('click', resetGame);
 }
 
 function resetGame() {
   $('#endGameModal').hide();
+
+  $('chip').animate({
+    bottom: '250px'
+  });
   $('.chip-display').remove();
+
   board = [
     [],
     [],
@@ -169,14 +221,13 @@ function resetGame() {
   ];
   turn = 1;
   distance = [
-    [70],
-    [70],
-    [70],
-    [70],
-    [70],
-    [70],
-    [70]
+    [100],
+    [100],
+    [100],
+    [100],
+    [100],
+    [100],
+    [100]
   ];
-
 
 }
