@@ -14,11 +14,13 @@ function initializeApp() {
   $('.loadingModal').show();
   $('.modalMain').show();
   $('.modalBG').show();
+
 }
 
 function clickHandler() {
   $('.column-display').on('click', dropCoin);
   //$('#playAgainBtn').on('click', resetGame);
+  $('#resetBtn').on('click', resetGame);
 }
 
 
@@ -134,7 +136,7 @@ function drawGameCheck() {
   if (turn === 42) {
     $('#EGMHeader').text('Everyone lose');
     $('#endGameModal').show();
-    $('.playAgainBtn').on('click', resetGame);
+    $('#resetBtn').on('click', resetGame);
   }
 }
 
@@ -145,5 +147,31 @@ function endGame() {
     $('#EGMHeader').text('Player 2 Wins!!');
   }
   $('#endGameModal').show();
-  $('.playAgainBtn').on('click', resetGame);
+  $('#resetBtn').on('click', resetGame);
+}
+
+function resetGame() {
+  $('#endGameModal').hide();
+  $('.chip-display').remove();
+  board = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ];
+  turn = 1;
+  distance = [
+    [70],
+    [70],
+    [70],
+    [70],
+    [70],
+    [70],
+    [70]
+  ];
+
+
 }
