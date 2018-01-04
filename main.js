@@ -95,17 +95,17 @@ function dropCoin() {
   var maxRow = board[colNum].length;
   if (maxRow < 6) {
     if (turn % 2 !== 0) {
-        $('#playerNum').text("Pirates Turn");
-        board[colNum].push('1');
-        domCreateCoin(this, colNum, board[colNum].length - 1);
-        checkAtVectors([colNum, board[colNum].length - 1]);
-        turn += 1;
+      $('#playerNum').text("Pirates Turn");
+      board[colNum].push('1');
+      domCreateCoin(this, colNum, board[colNum].length - 1);
+      checkAtVectors([colNum, board[colNum].length - 1]);
+      turn += 1;
     } else {
-        $('#playerNum').text("Spanish Turn");
-        board[colNum].push('2');
-        domCreateCoin(this, colNum, board[colNum].length - 1);
-        checkAtVectors([colNum, board[colNum].length - 1]);
-        turn += 1;
+      $('#playerNum').text("Spanish Turn");
+      board[colNum].push('2');
+      domCreateCoin(this, colNum, board[colNum].length - 1);
+      checkAtVectors([colNum, board[colNum].length - 1]);
+      turn += 1;
     }
   }
 }
@@ -205,9 +205,9 @@ function endGame() {
 function resetGame() {
   $('#endGameModal').hide();
 
-  $('chip').animate({
-    bottom: '250px'
-  });
+  // $('chip').animate({
+  //   bottom: '250px'
+  // });
   $('.chip-display').remove();
 
   board = [

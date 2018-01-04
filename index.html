@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
-	<title>Pirates of the Caribbean Connect 4</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
-	<script src="main.js"></script>
+  <title>Pirates of the Caribbean Connect 4</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
+  <script src="main.js"></script>
 
 </head>
+
 <body>
 
-	<div class="loadingModal">
-		<div class="modalBG">
-			<div class="modalMain">
-				<h1>Welcome to the Pirates Connect Four Game!</h1>
-			</div>
-		</div>
-	</div>
+  <div class="loadingModal">
+    <div class="modalBG">
+      <div class="modalMain">
+        <h1>Welcome to the Pirates Connect Four Game!</h1>
+      </div>
+    </div>
+  </div>
 
   <div id="endGameModal" class="modalBG">
     <div id="modalContent">
@@ -29,30 +31,38 @@
     </div>
   </div>
 
-<header>
-	<div class="title">Pirates of the Caribbean Connect 4</div>
-</header>
+  <header>
+    <div class="title">Pirates of the Caribbean Connect 4</div>
+  </header>
 
-<div class="main-container"><!--  Main Container Start -->
+  <div class="main-container">
+    <!--  Main Container Start -->
 
-	<div class="scoreContainer"><!--  Player Container Start -->
+    <div class="scoreContainer">
+      <!--  Player Container Start -->
 
-		<div id='player'>Player</div>
-		<div id="playerNum">1</div>
-		<button type="button" id="resetBtn" name="button">Reset Button</button>
-		</div><!--  Player Container End -->
-	<div class="game-area"><!--  Game Area Start -->
-		<div class='column-area'>
-            <div class="column-display col0" colnum = 0></div>
-            <div class="column-display col1" colnum = 1></div>
-            <div class="column-display col2" colnum = 2></div>
-            <div class="column-display col3" colnum = 3></div>
-            <div class="column-display col4" colnum = 4></div>
-            <div class="column-display col5" colnum = 5></div>
-            <div class="column-display col6" colnum = 6></div>
-        </div><!--  Column Area End -->
-    </div><!--  Game Area End -->
-</div><!--  Main Container End -->
+      <div id='player'>Player</div>
+      <div id="playerNum">1</div>
+      <button type="button" id="resetBtn" name="button">Reset Button</button>
+    </div>
+    <!--  Player Container End -->
+    <div class="game-area">
+      <!--  Game Area Start -->
+      <div class='column-area'>
+        <div class="column-display col0" colnum=0></div>
+        <div class="column-display col1" colnum=1></div>
+        <div class="column-display col2" colnum=2></div>
+        <div class="column-display col3" colnum=3></div>
+        <div class="column-display col4" colnum=4></div>
+        <div class="column-display col5" colnum=5></div>
+        <div class="column-display col6" colnum=6></div>
+      </div>
+      <!--  Column Area End -->
+    </div>
+    <!--  Game Area End -->
+  </div>
+  <!--  Main Container End -->
 
 </body>
+
 </html>
