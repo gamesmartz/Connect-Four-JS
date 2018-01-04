@@ -5,6 +5,8 @@
 body {
   background-image: url(./assets/img/pirate-bay-background.jpg);
   text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 header {
@@ -122,6 +124,19 @@ header {
 .display-none {
   display: none;
 }
+
+.player1 {
+  background-image: url(./assets/img/pirate-coin-5.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.player2 {
+  background-image: url(./assets/img/spanish-coin-3.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 
 /* Might use this stuff later - Matt
 

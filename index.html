@@ -10,8 +10,10 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
 	<script src="main.js"></script>
+
 </head>
 <body>
+
 	<div class="loadingModal">
 		<div class="modalBG">
 			<div class="modalMain">
@@ -20,7 +22,12 @@
 		</div>
 	</div>
 
-<body>
+  <div id="endGameModal" class="modalBG">
+    <div id="modalContent">
+      <div id="EGMHeader"></div>
+      <button id="playAgainBtn"></button>
+    </div>
+  </div>
 
 <header>
 	<div class="title">Pirates of the Caribbean Connect 4</div>
@@ -57,76 +64,94 @@
 		<div class='column-area'>
 
             <div class="column-display col0" colnum = 0>
-              <!-- <div class="chip-display chip0" style="background-image: url(./assets/img/pirate-coin-1.png); background-size: contain; background-repeat: no-repeat;"></div>
-              <div class="chip-display chip1 player1" style="background-color: #6ab856;"></div>
-              <div class="chip-display chip2" style="background-color: #8da0b8;"></div>
-              <div class="chip-display chip3" style="background-color: #b84248;"></div>
-              <div class="chip-display chip4" style="background-color: #a3b853;"></div>
-              <div class="chip-display chip5 player2" style="background-color: #6354b8;"></div> -->
+
+              <!--<div class="chip-display chip0 player2"></div>-->
+              <!--<div class="chip-display chip1 player2"></div>-->
+              <!--<div class="chip-display chip2 player2"></div>-->
+              <!--<div class="chip-display chip3 player1"></div>-->
+              <!--<div class="chip-display chip4 player1"></div>-->
+              <!--<div class="chip-display chip5 player1"></div>-->
+
             </div>
 
             <div class="column-display col1" colnum = 1>
-              <!-- <div class="chip-display chip0" style="background-color: #95b875;"></div>
-              <div class="chip-display chip1" style="background-color: #b87331;"></div>
-              <div class="chip-display chip2" style="background-color: #52b884;"></div>
-              <div class="chip-display chip3" style="background-color: #7991b8;"></div>
-              <div class="chip-display chip4" style="background-color: #b864b8;"></div>
-              <div class="chip-display chip5" style="background-color: #59b868;"></div> -->
+
+              <!--<div class="chip-display chip0 player2"></div>-->
+              <!--<div class="chip-display chip1 player2"></div>-->
+              <!--<div class="chip-display chip2 player2"></div>-->
+              <!--<div class="chip-display chip3 player1"></div>-->
+              <!--<div class="chip-display chip4 player1"></div>-->
+              <!--<div class="chip-display chip5 player1"></div>-->
+
             </div>
 
             <div class="column-display col2" colnum = 2>
-              <!-- <div class="chip-display chip0" style="background-color: #6bb85a;"></div>
-              <div class="chip-display chip1" style="background-color: #b8b761;"></div>
-              <div class="chip-display chip2" style="background-color: #b8625f;"></div>
-              <div class="chip-display chip3" style="background-color: #b84248;"></div>
-              <div class="chip-display chip4" style="background-color: #b47bb8;"></div>
-              <div class="chip-display chip5" style="background-color: #5a95b8;"></div> -->
+
+              <!--<div class="chip-display chip0 player2"></div>-->
+              <!--<div class="chip-display chip1 player2"></div>-->
+              <!--<div class="chip-display chip2 player2"></div>-->
+              <!--<div class="chip-display chip3 player1"></div>-->
+              <!--<div class="chip-display chip4 player1"></div>-->
+              <!--<div class="chip-display chip5 player1"></div>-->
+
             </div>
 
             <div class="column-display col3" colnum = 3>
-              <!-- <div class="chip-display chip0" style="background-color: #5bb86d;"></div>
-              <div class="chip-display chip1" style="background-color: #b8a06f;"></div>
-              <div class="chip-display chip2" style="background-color: #b85a5b;"></div>
-              <div class="chip-display chip3" style="background-color: #5c75b8;"></div>
-              <div class="chip-display chip4" style="background-color: #a747b8;"></div>
-              <div class="chip-display chip5" style="background-color: #70b8ac;"></div> -->
+
+              <!--<div class="chip-display chip0 player2"></div>-->
+              <!--<div class="chip-display chip1 player2"></div>-->
+              <!--<div class="chip-display chip2 player2"></div>-->
+              <!--<div class="chip-display chip3 player1"></div>-->
+              <!--<div class="chip-display chip4 player1"></div>-->
+              <!--<div class="chip-display chip5 player1"></div>-->
+
             </div>
 
             <div class="column-display col4" colnum = 4>
-              <!-- <div class="chip-display chip0" style="background-color: #54b890;"></div>
-              <div class="chip-display chip1" style="background-color: #b8b464;"></div>
-              <div class="chip-display chip2" style="background-color: #b65bb8;"></div>
-              <div class="chip-display chip3" style="background-color: #60b860;"></div>
-              <div class="chip-display chip4" style="background-color: #b8463b;"></div>
-              <div class="chip-display chip5" style="background-color: #6ab87b;"></div> -->
+
+              <!--<div class="chip-display chip0 player2"></div>-->
+              <!--<div class="chip-display chip1 player2"></div>-->
+              <!--<div class="chip-display chip2 player2"></div>-->
+              <!--<div class="chip-display chip3 player1"></div>-->
+              <!--<div class="chip-display chip4 player1"></div>-->
+              <!--<div class="chip-display chip5 player1"></div>-->
+
             </div>
 
             <div class="column-display col5" colnum = 5>
-              <!-- <div class="chip-display chip0" style="background-color: #b89e71;"></div>
-              <div class="chip-display chip1" style="background-color: #b8674c;"></div>
-              <div class="chip-display chip2" style="background-color: #6eb8a3;"></div>
-              <div class="chip-display chip3" style="background-color: #b873a6;"></div>
-              <div class="chip-display chip4" style="background-color: #6d8fb8;"></div>
-              <div class="chip-display chip5" style="background-color: #56b87c;"></div> -->
+
+              <!--<div class="chip-display chip0 player2"></div>-->
+              <!--<div class="chip-display chip1 player2"></div>-->
+              <!--<div class="chip-display chip2 player2"></div>-->
+              <!--<div class="chip-display chip3 player1"></div>-->
+              <!--<div class="chip-display chip4 player1"></div>-->
+              <!--<div class="chip-display chip5 player1"></div>-->
+
             </div>
 
             <div class="column-display col6" colnum = 6>
-              <!-- <div class="chip-display chip0" style="background-color: #afb859;"></div>
-              <div class="chip-display chip1" style="background-color: #b86883;"></div>
-              <div class="chip-display chip2" style="background-color: #9971b8;"></div>
-              <div class="chip-display chip3" style="background-color: #5db87b;"></div>
-              <div class="chip-display chip4" style="background-color: #7893b8;"></div>
-              <div class="chip-display chip5" style="background-color: #b8b754;"></div>
-            </div> -->
 
-        </div>
+              <!--<div class="chip-display chip0 player2"></div>-->
+              <!--<div class="chip-display chip1 player2"></div>-->
+              <!--<div class="chip-display chip2 player2"></div>-->
+              <!--<div class="chip-display chip3 player1"></div>-->
+              <!--<div class="chip-display chip4 player1"></div>-->
+              <!--<div class="chip-display chip5 player1"></div>-->
+
+            </div>
+
+        </div><!--  Column Area End -->
     </div><!--  Game Area End -->
 </div><!--  Main Container End -->
+<<<<<<< HEAD
 <!-- <div id="endGameModal" class="modalBG"> <!-- End of Game Modal -->
 	<div id="modalContent">
 		<div id="EGMHeader"></div>
 
 	</div>
 </div> -->
+=======
+
+>>>>>>> 95671b44a31977546d4ab505f46ee4d63f9caffc
 </body>
 </html>
