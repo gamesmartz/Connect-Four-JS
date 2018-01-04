@@ -11,10 +11,15 @@ $(document).ready(initializeApp);
 
 function initializeApp() {
   clickHandler();
+  startGame();
+
+
+}
+
+function startGame() {
   $('.loadingModal').show();
   $('.modalMain').show();
   $('.modalBG').show();
-
 }
 
 function clickHandler() {
