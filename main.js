@@ -12,6 +12,8 @@ $(document).ready(initializeApp);
 function initializeApp() {
   clickHandler();
   startGame();
+  $('#playerNum').text("Pirates always go first");
+  pirateHover();
 }
 
 function startGame() {
@@ -95,15 +97,17 @@ function dropCoin() {
   var maxRow = board[colNum].length;
   if (maxRow < 6) {
     if (turn % 2 !== 0) {
-        $('#playerNum').text("Pirates Turn");
+        $('#playerNum').text("Spanish Turn");
         board[colNum].push('1');
         domCreateCoin(this, colNum, board[colNum].length - 1);
+        spanishHover();
         checkAtVectors([colNum, board[colNum].length - 1]);
         turn += 1;
     } else {
-        $('#playerNum').text("Spanish Turn");
+        $('#playerNum').text("Pirates Turn");
         board[colNum].push('2');
         domCreateCoin(this, colNum, board[colNum].length - 1);
+        pirateHover();
         checkAtVectors([colNum, board[colNum].length - 1]);
         turn += 1;
     }
@@ -135,19 +139,19 @@ var spanishCoins = [
 ];
 
 function randomPirate() {
-  var randPCoin = [];
+  var randPCoin;
   for (var i = 0; i < pirateCoins.length; i++) {
     var randPIndex = Math.floor(Math.random() * pirateCoins.length);
-    randPCoin.push(pirateCoins[randPIndex]);
+    randPCoin = pirateCoins[randPIndex];
   }
   return randPCoin;
 }
 
 function randomSpanish() {
-  var randSCoin = [];
+  var randSCoin;
   for (var i = 0; i < spanishCoins.length; i++) {
     var randSIndex = Math.floor(Math.random() * spanishCoins.length);
-    randSCoin.push(spanishCoins[randSIndex]);
+    randSCoin = spanishCoins[randSIndex];
   }
   return randSCoin;
 
@@ -156,16 +160,12 @@ function randomSpanish() {
 function domCreateCoin(column, colNum, rowNum) {
   var pCoin = randomPirate();
   var sCoin = randomSpanish();
-  for (var i = 0; i < pCoin.length; i++) {
-    var coinPirate = $('<div>').addClass('chip-display chip' + rowNum);
-    var coinPirateImage = $('<img>').attr('src', pCoin[i]).addClass('chip');
+  var coinPirate = $('<div>').addClass('chip-display chip' + rowNum);
+  var coinPirateImage = $('<img>').attr('src', pCoin).addClass('chip');
+  var coinSpanish = $('<div>').addClass('chip-display chip' + rowNum);
+  var coinSpanishImage = $('<img>').attr('src', sCoin).addClass('chip');
     coinPirate.append(coinPirateImage);
-  }
-  for (var i = 0; i < sCoin.length; i++) {
-    var coinSpanish = $('<div>').addClass('chip-display chip' + rowNum);
-    var coinSpanishImage = $('<img>').attr('src', sCoin[i]).addClass('chip');
     coinSpanish.append(coinSpanishImage);
-  }
   if (board[colNum][rowNum] === '1') {
 
     $(column).prepend(coinPirate);
@@ -179,8 +179,8 @@ function domCreateCoin(column, colNum, rowNum) {
     coinSpanish.animate({
       top: distance[colNum] + '%'
     });
-
   }
+  $('.column-display').css("background-image", "url()").css("background-repeat", "no-repeat");
 }
 
 function drawGameCheck() {
@@ -229,5 +229,29 @@ function resetGame() {
     [100],
     [100]
   ];
-
+    $('#playerNum').text("Pirates always go first");
 }
+
+
+function pirateHover() {
+    $('.column-display').mouseover(function () {
+        $(this).css("background-image", "url("+randomPirate()+")").css("background-repeat", "no-repeat")
+    });
+    $('.column-display').mouseout(function () {
+        $(this).css("background-image", "url()").css("background-repeat", "no-repeat")
+    });
+}
+
+function spanishHover() {
+    $('.column-display').hover(function () {
+        $(this).css("background-image", "url("+randomSpanish()+")").css("background-repeat", "no-repeat")
+    });
+    $('.column-display').mouseout(function () {
+        $(this).css("background-image", "url()").css("background-repeat", "no-repeat")
+    })
+}
+
+/*
+function pirateHover() {
+    $(this).css("background-image", "url("+randomPirate()+")").css("background-repeat", "no-repeat")
+}*/
