@@ -44,6 +44,8 @@ function clickHandler() {
     $('.playerChooseDiv').on('click', sideSelection);
 }
 
+//chooses pirates or spaniards, appends appropriate image to player board, assigns players and hovers coin
+
 function sideSelection (){
     var selectedCoin = $(this).attr('id');
     switch (selectedCoin){
@@ -69,19 +71,19 @@ var vArr = [ //array of directions. These are essentially instructions for how t
   [
     [1, 0],
     [-1, 0]
-  ], //up down vectors
+  ], //left right vectors horizontal search through columns
   [
     [0, 1],
     [0, -1]
-  ], //left right vectors
+  ], //up down vectors, vertical search
   [
     [-1, -1],
     [1, 1]
-  ], // right angle vectors
+  ], // right angle vectors (to upper right corner)
   [
     [1, -1],
     [-1, 1]
-  ] //left angle vectors
+  ] //left angle vectors (to upper left corner)
 ];
 
 function checkAtVectors(start) { //start equals the last piece added to the board
@@ -118,7 +120,7 @@ function dropCoin() {
   var maxRow = board[colNum].length;
   if (maxRow < 6) {
     if (player1 === 'Pirates') {
-        $('#playerNum').text("Spanish Turn");
+        $('#playerNum').text("Spaniard's Turn");
         $('.player-flag').css("background-image", "url('./assets/img/spanish-flag-player-turn.png')");
         board[colNum].push('p');
         domCreateCoin(this, colNum, board[colNum].length - 1);
@@ -127,7 +129,7 @@ function dropCoin() {
         player1 = 'Spaniards';
         turn += 1;
     } else {
-        $('#playerNum').text("Pirates Turn");
+        $('#playerNum').text("Pirate's Turn");
         $('.player-flag').css("background-image", "url('./assets/img/pirate-flag-player-turn.png')");
         board[colNum].push('s');
         domCreateCoin(this, colNum, board[colNum].length - 1);
@@ -213,9 +215,8 @@ function domCreateCoin(column, colNum, rowNum) {
 
 function drawGameCheck() {
   if (turn === 42) {
-    $('#endModalHeader').text('Everyone lose');
+    $('#endModalHeader').text('Draw! Everyone Loses...');
     $('#endGameModal').show();
-    $('#resetBtn').on('click', resetGame);
   }
 }
 
@@ -229,7 +230,6 @@ function endGame() {
   }
   $('#endGameModal').fadeIn();
 
-  $('#resetBtn').on('click', resetGame);
 }
 
 function resetGame() {
