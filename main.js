@@ -31,6 +31,11 @@ function startGame() {
 function clickHandler() {
     $('.column-display').on('click', dropCoin);
     $('#playAgainBtn').on('click', resetGame);
+    $('#changeAllegianceBtn').on('click', 
+        function () {
+          resetGame();
+          $('#coinChooseModal').fadeIn();
+        });
     $('#resetBtn').on('click', resetGame);
     $('.playerChooseDiv').on('click',
         function () {
@@ -45,11 +50,13 @@ function sideSelection (){
         case 'piratesFlag':
             player1 = 'Pirates';
             player2 = 'Spanish';
+            $('.player-flag').css("background-image", "url('./assets/img/pirate-flag-player-turn.png')");
             pirateHover();
             break;
         case 'spanishFlag':
             player1 = 'Spanish';
             player2 = 'Pirates';
+            $('.player-flag').css("background-image", "url('./assets/img/spanish-flag-player-turn.png')");
             spanishHover();
             break;
     }
@@ -82,7 +89,6 @@ function checkAtVectors(start) { //start equals the last piece added to the boar
   var counter = null; //keeps track of matches found
   var vector = start; //creates new variable equal to start position. Will be used to keep start param from being changed
   var check = []; //starts empty, will store the position to be checked
-
   for (var i = 0; i < vArr.length; i++) { //first loop, goes through the vArr array
     counter = null;
     for (var k = 0; k < 2;) { //second loop, goes through the indexes of vArr[i]
@@ -113,14 +119,16 @@ function dropCoin() {
   if (maxRow < 6) {
     if (player1 === 'Pirates') {
         $('#playerNum').text("Spanish Turn");
+        $('.player-flag').css("background-image", "url('./assets/img/spanish-flag-player-turn.png')");
         board[colNum].push('p');
         domCreateCoin(this, colNum, board[colNum].length - 1);
         spanishHover();
         checkAtVectors([colNum, board[colNum].length - 1]);
-        player1 = 'Spanish';
+        player1 = 'Spaniards';
         turn += 1;
     } else {
         $('#playerNum').text("Pirates Turn");
+        $('.player-flag').css("background-image", "url('./assets/img/pirate-flag-player-turn.png')");
         board[colNum].push('s');
         domCreateCoin(this, colNum, board[colNum].length - 1);
         pirateHover();
