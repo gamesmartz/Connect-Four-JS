@@ -224,7 +224,7 @@ header {
   cursor: pointer;
 }
 
-#playerFlag1 {
+#piratesFlag {
   width: 49%;
   height: 50%;
   display: inline-flex;
@@ -233,7 +233,7 @@ header {
   background-size: cover;
 }
 
-#playerFlag2 {
+#spanishFlag {
   width: 49%;
   height: 50%;
   display: inline-flex;
