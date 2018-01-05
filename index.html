@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
-	<title>Pirates of the Caribbean Connect 4</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
-	<script src="main.js"></script>
+  <title>Pirates of the Caribbean Connect 4</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=MedievalSharp" rel="stylesheet">
+  <script src="main.js"></script>
 
 </head>
+
 <body>
+	<audio class="coinAudio">
+			<source src="./assets/coin-sound.mp3" type="audio">
+
+	</audio>
 
 <div class="main-container"><!--  Main Container Start -->
 
@@ -23,7 +29,7 @@
   <div class="player-container">
     <div id='player' class="player">
       <div id="playerNum">Player Turn</div>
-    </div>    
+    </div>
     <div class="player-flag"></div>
     <div class="player-reset"><button type="button" id="resetBtn" name="button">Reset Button</button></div>
   </div>
@@ -59,12 +65,18 @@
     </div>
   </div>
 
-<!--   <div id="endGameModal" class="modalBG">
-    <div id="modalMain">
-      <div id="modalHeader"></div>
-      <button id="playAgainBtn"></button>
+
+  <div id='endGameModal' class="loadingModal">
+    <div class="coinModal">
+      <div class="modalMain">
+        <div id='endModalHeader'></div>
+        <div id="playAgainDiv">
+          <button id="playAgainBtn" class="endGameBtn">Play Again</button>
+          <button id="changeAllegiangeBtn" class="endGameBtn">Change Allegiance</button>
+        </div>
     </div>
-  </div> -->
+  </div>
 
 </body>
+
 </html>
