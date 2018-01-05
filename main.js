@@ -7,13 +7,15 @@ var board = [
   [],
   []
 ];
+var player1 = null;
+var player2 = null;
+
+
 $(document).ready(initializeApp);
 
 function initializeApp() {
   clickHandler();
   startGame();
-  $('#playerNum').text("Pirates always go first");
-  pirateHover();
 }
 
 function startGame() {
@@ -27,31 +29,33 @@ function startGame() {
 }
 
 function clickHandler() {
-  $('.column-display').on('click', dropCoin);
-  $('#playAgainBtn').on('click', resetGame);
-  $('#changeAllegiangeBtn').on('click', function(){
-    resetGame();
-    $('#coinChooseModal').fadeIn();
-    });
-  $('#resetBtn').on('click', resetGame);
-  $('.playerChooseDiv').on('click',
-    function() {
-      $('#coinChooseModal').fadeOut();
-    }
-    // sideSelection();
-  );
+    $('.column-display').on('click', dropCoin);
+    $('#playAgainBtn').on('click', resetGame);
+    $('#resetBtn').on('click', resetGame);
+    $('.playerChooseDiv').on('click',
+        function () {
+            $('#coinChooseModal').fadeOut();
+        });
+    $('.playerChooseDiv').on('click', sideSelection);
 }
 
-/*function sideSelection {
+function sideSelection (){
     var selectedCoin = $(this).attr('id');
     switch (selectedCoin){
-        case 'pirate':
-            $('').text("Pirates always go first");
+        case 'piratesFlag':
+            player1 = 'Pirates';
+            player2 = 'Spanish';
+            pirateHover();
             break;
-        case 'spanish':
-            $('').text("Spanish ");
+        case 'spanishFlag':
+            player1 = 'Spanish';
+            player2 = 'Pirates';
+            spanishHover();
+            break;
     }
-}*/
+    $('#playerNum').text(player1+" Turn");
+    return player1;
+}
 
 
 var vArr = [ //array of directions. These are essentially instructions for how to adjust the pieces being compared
@@ -107,21 +111,22 @@ function dropCoin() {
   var colNum = parseInt($(this).attr('colnum'));
   var maxRow = board[colNum].length;
   if (maxRow < 6) {
-    if (turn % 2 !== 0) {
-
-      $('#playerNum').text("Spanish Turn");
-      board[colNum].push('1');
-      domCreateCoin(this, colNum, board[colNum].length - 1);
-      spanishHover();
-      checkAtVectors([colNum, board[colNum].length - 1]);
-      turn += 1;
+    if (player1 === 'Pirates') {
+        $('#playerNum').text("Spanish Turn");
+        board[colNum].push('p');
+        domCreateCoin(this, colNum, board[colNum].length - 1);
+        spanishHover();
+        checkAtVectors([colNum, board[colNum].length - 1]);
+        player1 = 'Spanish';
+        turn += 1;
     } else {
-      $('#playerNum').text("Pirates Turn");
-      board[colNum].push('2');
-      domCreateCoin(this, colNum, board[colNum].length - 1);
-      pirateHover();
-      checkAtVectors([colNum, board[colNum].length - 1]);
-      turn += 1;
+        $('#playerNum').text("Pirates Turn");
+        board[colNum].push('s');
+        domCreateCoin(this, colNum, board[colNum].length - 1);
+        pirateHover();
+        checkAtVectors([colNum, board[colNum].length - 1]);
+        player1 = 'Pirates';
+        turn += 1;
     }
   }
 }
@@ -179,10 +184,9 @@ function domCreateCoin(column, colNum, rowNum) {
   var coinPirateImage = $('<img>').attr('src', pCoin).addClass('chip');
   var coinSpanish = $('<div>').addClass('chip-display chip' + rowNum);
   var coinSpanishImage = $('<img>').attr('src', sCoin).addClass('chip');
-  coinPirate.append(coinPirateImage);
-  coinSpanish.append(coinSpanishImage);
-  if (board[colNum][rowNum] === '1') {
-
+    coinPirate.append(coinPirateImage);
+    coinSpanish.append(coinSpanishImage);
+  if (board[colNum][rowNum] === 'p') {
     $(column).prepend(coinPirate);
     distance[colNum] -= 16.66;
     coinPirate.animate({
@@ -209,9 +213,11 @@ function drawGameCheck() {
 
 function endGame() {
   if (turn % 2 !== 0) {
-    $('#endModalHeader').text('Pirates WIN!!');
+    $('#EGMHeader').text(player1 + ' WIN!!');
+    console.log(player1 + ' WIN!!');
   } else {
-    $('#endModalHeader').text('Spanish WIN!!');
+    $('#EGMHeader').text(player2 +' WIN!!');
+    console.log(player2 + ' WIN!!');
   }
   $('#endGameModal').fadeIn();
 
