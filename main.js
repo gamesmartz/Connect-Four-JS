@@ -29,6 +29,10 @@ function startGame() {
 function clickHandler() {
   $('.column-display').on('click', dropCoin);
   $('#playAgainBtn').on('click', resetGame);
+  $('#changeAllegiangeBtn').on('click', function(){
+    resetGame();
+    $('#coinChooseModal').fadeIn();
+    });
   $('#resetBtn').on('click', resetGame);
   $('.playerChooseDiv').on('click',
     function() {
@@ -200,7 +204,7 @@ function domCreateCoin(column, colNum, rowNum) {
 
 function drawGameCheck() {
   if (turn === 42) {
-    $('#EGMHeader').text('Everyone lose');
+    $('#endModalHeader').text('Everyone lose');
     $('#endGameModal').show();
     $('#resetBtn').on('click', resetGame);
   }
@@ -208,11 +212,11 @@ function drawGameCheck() {
 
 function endGame() {
   if (turn % 2 !== 0) {
-    $('#EGMHeader').text('Pirates WIN!!');
+    $('#endModalHeader').text('Pirates WIN!!');
   } else {
-    $('#EGMHeader').text('Spanish WIN!!');
+    $('#endModalHeader').text('Spanish WIN!!');
   }
-  $('#endGameModal').show();
+  $('#endGameModal').fadeIn();
 
   $('#resetBtn').on('click', resetGame);
 }

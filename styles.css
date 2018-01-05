@@ -118,6 +118,9 @@ header {
   vertical-align: top;
   position: relative;
 }
+.column-display:hover{
+  cursor: pointer;
+}
 
 .score{
   display: inline-block;
@@ -128,7 +131,6 @@ header {
   margin: 0 2%;
   width: 50% !important;
   font-size: .9em;
-  font-family: 'MedievalSharp', cursive;
   color: white;
   position: relative;
   background-image: url(./assets/img/player-board.png);
@@ -156,6 +158,7 @@ header {
   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: 'piratefont';
   position: relative;
   display: flex;
   justify-content: center;
@@ -200,6 +203,7 @@ header {
   position: absolute;
   top:0;
 }
+
 .modalBG {
   /*background-color: rgba(0,0,0,.5);*/
   height:100%;
@@ -208,11 +212,13 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .coinModal {
   background-color: rgba(0,0,0,.5);
   height:100%;
   width:100%;
 }
+
 .modalMain{
   height: 50%;
   width: 50%;
@@ -251,6 +257,38 @@ header {
   top:0;
 }
 
+#endModalHeader {
+  height: 25%;
+  width: 100%;
+  margin-top: 5%;
+  font-size: 6vmin;
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.endGameBtn:hover {
+  cursor: pointer;
+}
+
+#playAgainBtn {
+  width: 20%;
+  height: 20%;
+  padding: 1vmin;
+  font-size: 2vmin;
+  border-radius: 1vmin;
+  box-shadow: -1px -1px 11px rgba(0,0,0,.4);
+  border: none;
+
+  background-color: #E6CD96FF;
+}
+
+#playAgainDiv {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+}
+
 #modalHeader {
   height: 25%;
   width: 100%;
@@ -261,12 +299,14 @@ header {
   text-align: center;
 }
 
-#playAgainBtn {
-  width: 25%;
-  background-color: #4CAF50;
+#changeAllegiangeBtn {
+  width: 26%;
+  height: 20%;
+  padding: 1vmin;
+  margin-left: 1vmin;
+  font-size: 2vmin;
+  border-radius: 1vmin;
+  box-shadow: -1px -1px 11px rgba(0,0,0,.4);
   border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 3vmin;
-  align-self: center;
+  background-color: red;
 }
