@@ -213,10 +213,10 @@ function drawGameCheck() {
 
 function endGame() {
   if (turn % 2 !== 0) {
-    $('#EGMHeader').text(player1 + ' WIN!!');
+    $('#endModalHeader').text(player1 + ' WIN!!');
     console.log(player1 + ' WIN!!');
   } else {
-    $('#EGMHeader').text(player2 +' WIN!!');
+    $('#endModalHeader').text(player2 +' WIN!!');
     console.log(player2 + ' WIN!!');
   }
   $('#endGameModal').fadeIn();
@@ -250,7 +250,6 @@ function resetGame() {
     [100],
     [100]
   ];
-  $('#playerNum').text("Pirates always go first");
 }
 
 
