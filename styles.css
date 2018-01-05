@@ -2,6 +2,7 @@
   font-family: 'piratefont';
   src: url(assets/font/BlackPearl.ttf);
 }
+
 ::selection {
   user-select: none;
 }
@@ -59,6 +60,12 @@ header {
   background-image: url(./assets/img/player-board.png);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+#resetBtn:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 #resetBtn {
@@ -227,6 +234,8 @@ header {
 }
 
 .playerChooseDiv:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
   cursor: pointer;
 }
 
@@ -268,6 +277,8 @@ header {
 }
 
 .endGameBtn:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
   cursor: pointer;
 }
 
