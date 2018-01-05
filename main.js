@@ -18,10 +18,10 @@ function initializeApp() {
 
 function startGame() {
   $('#mainModal').show();
-  setTimeout(function(){
+  setTimeout(function() {
     $('#mainModal').fadeOut();
   }, 1500);
-  setTimeout(function(){
+  setTimeout(function() {
     $('#coinChooseModal').fadeIn();
   }, 1600);
 }
@@ -34,12 +34,12 @@ function clickHandler() {
     $('#coinChooseModal').fadeIn();
     });
   $('#resetBtn').on('click', resetGame);
-  $('.playerChooseDiv').on('click', 
-    function(){
+  $('.playerChooseDiv').on('click',
+    function() {
       $('#coinChooseModal').fadeOut();
     }
     // sideSelection();
-    );
+  );
 }
 
 /*function sideSelection {
@@ -108,19 +108,20 @@ function dropCoin() {
   var maxRow = board[colNum].length;
   if (maxRow < 6) {
     if (turn % 2 !== 0) {
-        $('#playerNum').text("Spanish Turn");
-        board[colNum].push('1');
-        domCreateCoin(this, colNum, board[colNum].length - 1);
-        spanishHover();
-        checkAtVectors([colNum, board[colNum].length - 1]);
-        turn += 1;
+
+      $('#playerNum').text("Spanish Turn");
+      board[colNum].push('1');
+      domCreateCoin(this, colNum, board[colNum].length - 1);
+      spanishHover();
+      checkAtVectors([colNum, board[colNum].length - 1]);
+      turn += 1;
     } else {
-        $('#playerNum').text("Pirates Turn");
-        board[colNum].push('2');
-        domCreateCoin(this, colNum, board[colNum].length - 1);
-        pirateHover();
-        checkAtVectors([colNum, board[colNum].length - 1]);
-        turn += 1;
+      $('#playerNum').text("Pirates Turn");
+      board[colNum].push('2');
+      domCreateCoin(this, colNum, board[colNum].length - 1);
+      pirateHover();
+      checkAtVectors([colNum, board[colNum].length - 1]);
+      turn += 1;
     }
   }
 }
@@ -167,6 +168,9 @@ function randomSpanish() {
   return randSCoin;
 
 }
+var audio = $('.coinAudio');
+
+
 
 function domCreateCoin(column, colNum, rowNum) {
   var pCoin = randomPirate();
@@ -175,8 +179,8 @@ function domCreateCoin(column, colNum, rowNum) {
   var coinPirateImage = $('<img>').attr('src', pCoin).addClass('chip');
   var coinSpanish = $('<div>').addClass('chip-display chip' + rowNum);
   var coinSpanishImage = $('<img>').attr('src', sCoin).addClass('chip');
-    coinPirate.append(coinPirateImage);
-    coinSpanish.append(coinSpanishImage);
+  coinPirate.append(coinPirateImage);
+  coinSpanish.append(coinSpanishImage);
   if (board[colNum][rowNum] === '1') {
 
     $(column).prepend(coinPirate);
@@ -184,12 +188,14 @@ function domCreateCoin(column, colNum, rowNum) {
     coinPirate.animate({
       top: distance[colNum] + '%'
     });
+    coinDropSound();
   } else {
     $(column).prepend(coinSpanish);
     distance[colNum] -= 16.66;
     coinSpanish.animate({
       top: distance[colNum] + '%'
     });
+    coinDropSound();
   }
 }
 
@@ -214,9 +220,9 @@ function endGame() {
 
 function resetGame() {
   $('#endGameModal').hide();
-  $('chip').animate({
-    bottom: '250px'
-  });
+  // $('chip').animate({
+  //   bottom: '250px'
+  // });
   $('.chip-display').remove();
 
   board = [
@@ -238,32 +244,42 @@ function resetGame() {
     [100],
     [100]
   ];
-    $('#playerNum').text("Pirates always go first");
+  $('#playerNum').text("Pirates always go first");
 }
 
 
 function pirateHover() {
-    $('.column-display').click(function () {
-        $(this).css("background-image", "url("+randomSpanish()+")").css("background-repeat", "no-repeat")
-        
-    });
-    $('.column-display').mouseover(function () {
-        $(this).css("background-image", "url("+randomPirate()+")").css("background-repeat", "no-repeat")
-    });
-    $('.column-display').mouseout(function () {
-        $(this).css("background-image", "url()").css("background-repeat", "no-repeat")
-    });
+  $('.column-display').click(function() {
+    $(this).css("background-image", "url(" + randomSpanish() + ")").css("background-repeat", "no-repeat")
+  });
+  $('.column-display').mouseover(function() {
+    $(this).css("background-image", "url(" + randomPirate() + ")").css("background-repeat", "no-repeat")
+  });
+  $('.column-display').mouseout(function() {
+    $(this).css("background-image", "url()").css("background-repeat", "no-repeat")
+  });
 }
 
 function spanishHover() {
-    $('.column-display').click(function () {
-        $(this).css("background-image", "url("+randomPirate()+")").css("background-repeat", "no-repeat")
-    });
-    $('.column-display').hover(function () {
-        $(this).css("background-image", "url("+randomSpanish()+")").css("background-repeat", "no-repeat")
-    });
-    $('.column-display').mouseout(function () {
-        $(this).css("background-image", "url()").css("background-repeat", "no-repeat")
-    })
+  $('.column-display').click(function() {
+    $(this).css("background-image", "url(" + randomPirate() + ")").css("background-repeat", "no-repeat")
+  });
+  $('.column-display').hover(function() {
+    $(this).css("background-image", "url(" + randomSpanish() + ")").css("background-repeat", "no-repeat")
+  });
+  $('.column-display').mouseout(function() {
+    $(this).css("background-image", "url()").css("background-repeat", "no-repeat")
+  })
 }
 
+
+
+//audio javascript
+
+var coinAudio = new Audio('./assets/coin-sound2.mp3');
+
+function coinDropSound() {
+  coinAudio.pause();
+  coinAudio.currentTime = 0;
+  coinAudio.play();
+}
