@@ -240,24 +240,24 @@ header {
 
 #piratesFlag {
   width: 49%;
-  height: 50%;
+  height: 60%;
   padding: 1vmin;
   display: inline-flex;
   border-radius: 1vmin;
   box-shadow: -5px -5px 11px rgba(0,0,0,.4);
-  background-image: url('./assets/img/pirate_flag.jpg');
+  background-image: url(./assets/img/pirate_flag.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #spanishFlag {
   width: 49%;
-  height: 50%;
+  height: 60%;
   padding: 1vmin;
   display: inline-flex;
   border-radius: 1vmin;
   box-shadow: -5px -5px 11px rgba(0,0,0,.4);
-  background-image: url('./assets/img/spanish_flag.png');
+  background-image: url(./assets/img/spanish_flag.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
