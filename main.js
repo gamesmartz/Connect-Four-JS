@@ -89,7 +89,6 @@ function checkAtVectors(start) { //start equals the last piece added to the boar
   var counter = null; //keeps track of matches found
   var vector = start; //creates new variable equal to start position. Will be used to keep start param from being changed
   var check = []; //starts empty, will store the position to be checked
-
   for (var i = 0; i < vArr.length; i++) { //first loop, goes through the vArr array
     counter = null;
     for (var k = 0; k < 2;) { //second loop, goes through the indexes of vArr[i]
