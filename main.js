@@ -88,15 +88,12 @@ function checkAtVectors(start) { //start equals the last piece added to the boar
         k++; //this shifts the direction we are serching in, and makes it opposite of the direction we were currently looking
       } else if (board[check[0]][check[1]] === board[start[0]][start[1]]) { //checks to see if the pieces compared were the same
         counter++; //increase the counter (how many mathes have been found consecutively)
-        console.log(counter);
-        console.log('Input at x: ' + check[0] + ' y: ' + check[1] + ' = ' + board[check[0]][check[1]]);
         vector = check; //change the current vector to the one we just checked, so that we can continue moving in the same direction
       } else if (board[check[0]][check[1]] !== board[start[0]][start[1]]) { //check to see if the start piece matches the adjacent piece if we do not find a match immediately next to the start piece, it cannot be a 4-in-a-row
         vector = start; //if this runs, it means we reached a position not on the board. We need to start searching again from the origin/'start' point
         k++; //this shifts the direction we are serching in, and makes it opposite of the direction we were currently looking
       }
       if (counter >= 3) { //checks to see if we have found at least 3 additional matched pieces
-        console.log('You Have Four in a Row!')
         endGame();
       }
     }
@@ -217,7 +214,6 @@ function endGame() {
 
 function resetGame() {
   $('#endGameModal').hide();
-
   $('chip').animate({
     bottom: '250px'
   });
@@ -249,6 +245,7 @@ function resetGame() {
 function pirateHover() {
     $('.column-display').click(function () {
         $(this).css("background-image", "url("+randomSpanish()+")").css("background-repeat", "no-repeat")
+        
     });
     $('.column-display').mouseover(function () {
         $(this).css("background-image", "url("+randomPirate()+")").css("background-repeat", "no-repeat")
