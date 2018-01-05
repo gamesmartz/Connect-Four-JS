@@ -184,7 +184,6 @@ header {
 
 .player-flag{
   display: inline-block;
-  background-image: url(./assets/img/pirate-flag-player-turn.png);
   text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -215,7 +214,7 @@ header {
   /*background-color: rgba(0,0,0,.5);*/
   height:100%;
   width:100%;
-  background-image: url('./assets/img/modal_background.jpg');
+  background-image: url('./assets/img/modal_background2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }

@@ -110,6 +110,7 @@ function dropCoin() {
     if (turn % 2 !== 0) {
 
       $('#playerNum').text("Spanish Turn");
+      $('.player-flag').css("background-image", "url('./assets/img/spanish_flag.png')");
       board[colNum].push('1');
       domCreateCoin(this, colNum, board[colNum].length - 1);
       spanishHover();
@@ -117,6 +118,7 @@ function dropCoin() {
       turn += 1;
     } else {
       $('#playerNum').text("Pirates Turn");
+      $('.player-flag').css("background-image", "url('./assets/img/pirate_flag.png')");
       board[colNum].push('2');
       domCreateCoin(this, colNum, board[colNum].length - 1);
       pirateHover();
@@ -211,7 +213,7 @@ function endGame() {
   if (turn % 2 !== 0) {
     $('#endModalHeader').text('Pirates WIN!!');
   } else {
-    $('#endModalHeader').text('Spanish WIN!!');
+    $('#endModalHeader').text('Spaniards WIN!!');
   }
   $('#endGameModal').fadeIn();
 
