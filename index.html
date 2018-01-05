@@ -15,21 +15,10 @@
 </head>
 
 <body>
+	<audio class="coinAudio">
+			<source src="./assets/coin-sound.mp3" type="audio">
 
-  <div class="loadingModal">
-    <div class="modalBG">
-      <div class="modalMain">
-        <h1>Welcome to the Pirates Connect Four Game!</h1>
-      </div>
-    </div>
-  </div>
-
-  <div id="endGameModal" class="modalBG">
-    <div id="modalContent">
-      <div id="EGMHeader"></div>
-      <button id="playAgainBtn"></button>
-    </div>
-  </div>
+	</audio>
 
 <div class="main-container"><!--  Main Container Start -->
 
@@ -57,6 +46,36 @@
         </div><!--  Column Area End -->
     </div><!--  Game Area End -->
 </div><!--  Main Container End -->
+
+  <div id='mainModal' class="loadingModal">
+    <div class="modalBG">
+      <div class="modalMain">
+        <div id='modalHeader'>Welcome to the Pirates Connect Four Game!</div>
+      </div>
+    </div>
+  </div>
+
+  <div id='coinChooseModal' class="loadingModal">
+    <div class="coinModal">
+      <div class="modalMain">
+        <div id='modalHeader'>Choose Your Allegiance</div>
+        <div id="playerFlag1" class="playerChooseDiv">Pirates</div>
+        <div id="playerFlag2" class="playerChooseDiv">Spaniards</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id='endGameModal' class="loadingModal">
+    <div class="coinModal">
+      <div class="modalMain">
+        <div id='endModalHeader'></div>
+        <div id="playAgainDiv">
+          <button id="playAgainBtn" class="endGameBtn">Play Again</button>
+          <button id="changeAllegiangeBtn" class="endGameBtn">Change Allegiance</button>
+        </div>
+    </div>
+  </div>
 
 </body>
 
